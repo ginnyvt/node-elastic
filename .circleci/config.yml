@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+ node: circleci/node@5.0.2
+jobs:
+ run_app:
+  executor: node/default
+  steps:
+   - checkout
+   - node/install-packages:
+      pkg-manager: npm
+   - run:
+      command: npm install
+      name: Install dependencies
+   - run:
+      command: yarn build
+      name: Build app
+
+workflows:
+ run_my_app:
+  jobs:
+   - run_app
