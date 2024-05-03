@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "text": {
+        "type": "text"
+      },
+      "user": {
+        "type": "keyword"
+      },
+      "time": {
+        "type": "date"
+      }
+    }
+  }
+}

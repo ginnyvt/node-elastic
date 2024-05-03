@@ -14,18 +14,16 @@ const client = new Client({
 	},
 });
 
+const indexSettings = JSON.parse(fs.readFileSync("index-setting.json", "utf-8"));
+//console.log(indexSettings.mappings);
+
 async function run() {
-	await client.indices.create({
-		index: "tweets",
-		mappings: {
-			properties: {
-				id: { type: "integer" },
-				text: { type: "text" },
-				user: { type: "keyword" },
-				time: { type: "date" },
-			},
-		},
+	const result = await client.indices.create({
+		index: "tweets-2",
+		mappings: indexSettings.mappings,
 	});
+
+	console.log(result);
 }
 
-// run().catch(console.log);
+run().catch(console.log);
