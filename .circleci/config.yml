@@ -12,8 +12,8 @@ jobs:
       command: npm install
       name: Install dependencies
    - run:
-      command: yarn build
-      name: Build app
+      command: node index.js
+      name: Run app
 
 workflows:
  run_my_app:
